@@ -1,0 +1,13 @@
+POST:
+http://localhost:8094/employee/addemployee
+{
+    "employeeName": "Mama",
+    "email": "m@g.com",
+    "password": "m",
+    "gender": "male",
+    "doj": "1990-02-02",
+    "departmentid": 2  ////// Error
+}
+
+GET:
+http://localhost:8094/employee/allemployees

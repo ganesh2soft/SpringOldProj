@@ -1,0 +1,10 @@
+GET:
+http://localhost:8095/department/alldept
+
+POST:
+
+http://localhost:8095/department/adddept
+
+{
+    "departmentName" :"Marketing"
+}

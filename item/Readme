@@ -1,0 +1,20 @@
+POST
+http://localhost:8700/api/v1/item/additem
+
+{
+    "sellerName": "Alabama Ltd",
+    "itemName": "Mobile",
+    "categoryId": 1,
+    "stockUnits": 100,
+    "unitPrice": 500,
+    "listedDate": "2024-06-30T12:00:00Z",
+    "imageUrl": "http://example.com/mobile.jpg"
+}
+
+GET ALL
+http://localhost:8700/api/v1/item/allitems
+
+
+DELETE by itemId
+http://localhost:8700/api/v1/item/deleteitem/4
+

@@ -1,0 +1,198 @@
+POST
+http://localhost:8705/api/v1/category/addcategory
+
+{
+    "categoryName": "Toys"
+}
+
+
+GET ALL
+http://localhost:8705/api/v1/category/allcategories
+[
+    {
+        "categoryId": 11,
+        "categoryName": "Apparels"
+    },
+    {
+        "categoryId": 8,
+        "categoryName": "Bevereges"
+    },
+    {
+        "categoryId": 3,
+        "categoryName": "Books"
+    },
+    {
+        "categoryId": 4,
+        "categoryName": "Electricals"
+    },
+    {
+        "categoryId": 7,
+        "categoryName": "Foods"
+    },
+    {
+        "categoryId": 10,
+        "categoryName": "Garage"
+    },
+    {
+        "categoryId": 6,
+        "categoryName": "Jewels"
+    },
+    {
+        "categoryId": 9,
+        "categoryName": "Kitchen"
+    },
+    {
+        "categoryId": 5,
+        "categoryName": "Mobile"
+    },
+    {
+        "categoryId": 1,
+        "categoryName": "Toys"
+    },
+    {
+        "categoryId": 2,
+        "categoryName": "Utils"
+    }
+]
+
+DELETE
+http://localhost:8705/api/v1/category/deletecategory/{categoryId}
+http://localhost:8705/api/v1/category/deletecategory/11
+
+
+
+---------------------------RUNas Administrator------------------------------------------Install minikube----------------------------------------
+D:\>choco install minikube 
+Chocolatey v2.1.0
+2 validations performed. 1 success(es), 1 warning(s), and 0 error(s).
+
+Validation Warnings:
+ - A pending system reboot request has been detected, however, this is
+   being ignored due to the current Chocolatey configuration.  If you
+   want to halt when this occurs, then either set the global feature
+   using:
+     choco feature enable -name=exitOnRebootDetected
+   or pass the option --exit-when-reboot-detected.
+
+Installing the following packages:
+minikube
+By installing, you accept licenses for the packages.
+Progress: Downloading kubernetes-cli 1.30.2... 100%
+
+kubernetes-cli v1.30.2 [Approved]
+kubernetes-cli package files install completed. Performing other installation steps.
+The package kubernetes-cli wants to run 'chocolateyInstall.ps1'.
+Note: If you don't run this script, the installation will fail.
+Note: To confirm automatically next time, use '-y' or consider:
+choco feature enable -n allowGlobalConfirmation
+Do you want to run the script?([Y]es/[A]ll - yes to all/[N]o/[P]rint): yes
+
+Extracting 64-bit C:\ProgramData\chocolatey\lib\kubernetes-cli\tools\kubernetes-client-windows-amd64.tar.gz to C:\ProgramData\chocolatey\lib\kubernetes-cli\tools...
+C:\ProgramData\chocolatey\lib\kubernetes-cli\tools
+Extracting 64-bit C:\ProgramData\chocolatey\lib\kubernetes-cli\tools\kubernetes-client-windows-amd64.tar to C:\ProgramData\chocolatey\lib\kubernetes-cli\tools...
+C:\ProgramData\chocolatey\lib\kubernetes-cli\tools
+ ShimGen has successfully created a shim for kubectl-convert.exe
+ ShimGen has successfully created a shim for kubectl.exe
+ The install of kubernetes-cli was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\kubernetes-cli\tools'
+Progress: Downloading Minikube 1.33.1... 100%
+
+Minikube v1.33.1 [Approved]
+Minikube package files install completed. Performing other installation steps.
+ ShimGen has successfully created a shim for minikube.exe
+ The install of Minikube was successful.
+  Software installed to 'C:\ProgramData\chocolatey\lib\Minikube'
+
+Chocolatey installed 2/2 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+D:\>
+D:\>minikube start
+W0701 00:34:06.442359  214340 main.go:291] Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\ayadmin\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
+* minikube v1.33.1 on Microsoft Windows 10 Pro 10.0.19045.4529 Build 19045.4529
+* Automatically selected the docker driver. Other choices: hyperv, ssh
+* Using Docker Desktop driver with root privileges
+* Starting "minikube" primary control-plane node in "minikube" cluster
+* Pulling base image v0.0.44 ...
+* Downloading Kubernetes v1.30.0 preload ...
+    > preloaded-images-k8s-v18-v1...:  342.90 MiB / 342.90 MiB  100.00% 5.78 Mi
+    > gcr.io/k8s-minikube/kicbase...:  481.58 MiB / 481.58 MiB  100.00% 6.59 Mi
+* Creating docker container (CPUs=2, Memory=4000MB) ...
+* Preparing Kubernetes v1.30.0 on Docker 26.1.1 ...
+  - Generating certificates and keys ...
+  - Booting up control plane ...
+  - Configuring RBAC rules ...
+* Configuring bridge CNI (Container Networking Interface) ...
+* Verifying Kubernetes components...
+  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+* Enabled addons: storage-provisioner, default-storageclass
+* Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+D:\>minikube dashboard
+W0701 00:37:17.583686  219196 main.go:291] Unable to resolve the current Docker CLI context "default": context "default": context not found: open C:\Users\ayadmin\.docker\contexts\meta\37a8eec1ce19687d132fe29051dca629d164e2c4958ba141d5f4133a33f0688f\meta.json: The system cannot find the path specified.
+* Enabling dashboard ...
+  - Using image docker.io/kubernetesui/dashboard:v2.7.0
+  - Using image docker.io/kubernetesui/metrics-scraper:v1.0.8
+* Some dashboard features require the metrics-server addon. To enable all features please run:
+
+        minikube addons enable metrics-server
+
+* Verifying dashboard health ...
+* Launching proxy ...
+* Verifying proxy health ...
+* Opening http://127.0.0.1:51542/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+
+Interact with your cluster
+If you already have kubectl installed (see documentation), you can now use it to access your shiny new cluster:
+
+kubectl get po -A
+Alternatively, minikube can download the appropriate version of kubectl and you should be able to use it like this:
+
+minikube kubectl -- get po -A
+
+
+
+
+
+
+--------------------------------------------------------------------------
+D:\>docker images
+REPOSITORY                    TAG       IMAGE ID       CREATED             SIZE
+<none>                        <none>    625ae97b25c0   About an hour ago   373MB
+category                      latest    fdfde9bae7a6   About an hour ago   373MB
+mysql                         latest    05247af91864   12 days ago         578MB
+gcr.io/k8s-minikube/kicbase   v0.0.44   5a6e59a9bdc0   7 weeks ago         1.26GB
+
+D:\>kubectl create deployment test11 --image=mysql
+deployment.apps/test11 created
+
+D:\>kubectl expose deployment test11 --type=NodePort --port=9888
+service/test11 exposed
+
+D:\>kubectl get services test11
+NAME     TYPE       CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+test11   NodePort   10.110.41.113   <none>        9888:30470/TCP   70s
+
+D:\>minikube service test11
+|-----------|--------|-------------|---------------------------|
+| NAMESPACE |  NAME  | TARGET PORT |            URL            |
+|-----------|--------|-------------|---------------------------|
+| default   | test11 |        9888 | http://192.168.49.2:30470 |
+|-----------|--------|-------------|---------------------------|
+* Starting tunnel for service test11.
+|-----------|--------|-------------|------------------------|
+| NAMESPACE |  NAME  | TARGET PORT |          URL           |
+|-----------|--------|-------------|------------------------|
+| default   | test11 |             | http://127.0.0.1:53564 |
+|-----------|--------|-------------|------------------------|
+* Opening service default/test11 in default browser...
+! Because you are using a Docker driver on windows, the terminal needs to be open to run it.
+
+Minikube steps
+kubectl create deployment test11 --image=mysql
+kubectl expose deployment test11 --type=NodePort --port=9888
+kubectl get services test11
+minikube service test11
+kubectl port-forward service/test11 9888:9888
+
+
