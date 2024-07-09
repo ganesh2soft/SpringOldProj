@@ -1,0 +1,43 @@
+version : "3.6"
+services:
+ springboot-bookapp:
+   image: springboot-bookserviceimg
+   restart: always
+   build: .
+   ports:
+     - 9001:9001
+     
+   networks:
+      - my-bridge-net  
+  # networks:
+  #    - proxynet
+   depends_on:
+      - mysqlbookdb
+   environment:
+      MYSQL_HOST: mysqlbookdb
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: P@ssw0rd
+   #   EUREKA_MAC: eureka-conappname
+      
+ mysqlbookdb:
+   container_name: mysqlbookdb 
+   image: mysql 
+   
+   ports:
+      - 3308:3306
+   environment: 
+      MYSQL_DATABASE: bookdb
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+   networks:
+      - my-bridge-net
+      
+      
+networks:
+  my-bridge-net:
+      external: true 
+       
+ #  networks:
+ #     - proxynet
+#networks:
+#   proxynet:
+#      driver: bridge 

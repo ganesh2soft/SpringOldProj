@@ -1,0 +1,5 @@
+com\deeps\book\entity\Book.class
+com\deeps\book\repository\BookRepository.class
+com\deeps\book\BookServiceApplication.class
+com\deeps\book\controller\BookController.class
+com\deeps\book\service\BookService.class

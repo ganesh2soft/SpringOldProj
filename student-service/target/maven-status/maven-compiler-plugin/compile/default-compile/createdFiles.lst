@@ -1,0 +1,7 @@
+com\deeps\student\service\StudentService.class
+com\deeps\student\StudentServiceApplication.class
+com\deeps\student\client\BookServiceClient.class
+com\deeps\student\controller\StudentController.class
+com\deeps\student\entity\Book.class
+com\deeps\student\entity\Student.class
+com\deeps\student\repository\StudentRepository.class

@@ -1,0 +1,43 @@
+version : "3.6"
+services:
+ springboot-app:
+   image: springboot-imgapp
+   restart: always
+   build: .
+   ports:
+     - 9003:9003
+     
+   networks:
+      - my-bridge-net  
+  # networks:
+  #    - proxynet
+   depends_on:
+      - mysqldb
+   environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: P@ssw0rd
+   #   EUREKA_MAC: eureka-conappname
+      
+ mysqldb:
+   container_name: mysqldb 
+   image: mysql 
+   
+   ports:
+      - 3307:3306
+   environment: 
+      MYSQL_DATABASE: studentdb
+      MYSQL_ROOT_PASSWORD: P@ssw0rd
+   networks:
+      - my-bridge-net
+      
+      
+networks:
+  my-bridge-net:
+      external: true 
+       
+ #  networks:
+ #     - proxynet
+#networks:
+#   proxynet:
+#      driver: bridge 
